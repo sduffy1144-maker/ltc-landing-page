@@ -4,88 +4,188 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Long-Term Care Planning Consultation</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f7fa;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
       color: #1f2937;
       line-height: 1.6;
     }
 
     .container {
-      max-width: 720px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 40px 22px;
-      background: #ffffff;
-      min-height: 100vh;
+      padding: 36px 22px;
+    }
+
+    .hero {
+      background: white;
+      border-radius: 18px;
+      padding: 36px;
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-photo {
+      width: 210px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     }
 
     h1 {
-      font-size: 34px;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-size: 36px;
+      line-height: 1.15;
+      margin: 0 0 14px;
       color: #0f172a;
     }
 
     h2 {
-      margin-top: 34px;
       color: #0f172a;
+      margin-top: 32px;
     }
 
     .subheadline {
-      font-size: 20px;
+      font-size: 19px;
       color: #475569;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     .card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #dbe3ec;
+      border-radius: 14px;
       padding: 22px;
-      margin: 24px 0;
+      margin: 22px 0;
+      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.04);
     }
 
-    .button {
-      display: inline-block;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: #f8fafc;
+      border: 1px solid #dbe3ec;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    form {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #dbe3ec;
+      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 90px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
       background: #0f4c81;
       color: white;
-      padding: 15px 22px;
+      border: none;
       border-radius: 8px;
-      text-decoration: none;
+      font-size: 17px;
       font-weight: bold;
-      margin: 10px 8px 10px 0;
+      cursor: pointer;
     }
 
-    .button.secondary {
-      background: #334155;
+    .contact-box {
+      background: #eef5fb;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    a {
+      color: #0f4c81;
+      font-weight: bold;
+    }
+
+    .about {
+      margin-top: 34px;
+      background: white;
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid #dbe3ec;
     }
 
     .footer {
-      margin-top: 40px;
+      margin-top: 28px;
       font-size: 12px;
       color: #64748b;
-      border-top: 1px solid #e2e8f0;
+      border-top: 1px solid #dbe3ec;
       padding-top: 18px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 28px 22px;
+      }
+
+      .hero-photo {
+        width: 170px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
-    <h1>Free Long-Term Care Planning Consultation</h1>
+  <div class="container">
 
-    <p class="subheadline">
-      A short, no-obligation conversation to help you better understand your options.
-    </p>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Free Long-Term Care Planning Consultation</h1>
 
-    <p>
-      If you ever needed help at home or in a care facility, how would that impact your finances or your family?
-    </p>
+        <p class="subheadline">
+          A short, no-obligation conversation to help you better understand your options.
+        </p>
+
+        <p>
+          If you ever needed help at home or in a care facility, how would that impact your finances or your family?
+        </p>
+      </div>
+
+      <img class="hero-photo" src="shane.jpg" alt="Shane Duffy, CLTC">
+    </section>
 
     <div class="card">
-      <p>Many people end up:</p>
+      <h2>Many people end up facing decisions like:</h2>
       <ul>
         <li>Using retirement savings</li>
         <li>Relying on family members for care</li>
@@ -95,13 +195,22 @@
 
     <h2>What we’ll cover</h2>
 
-    <p>During this complimentary consultation, we’ll review:</p>
+    <div class="grid">
+      <div class="mini-card">
+        <strong>How coverage works</strong>
+        <p>Understand the basics of long-term care coverage.</p>
+      </div>
 
-    <ul>
-      <li>How long-term care coverage works</li>
-      <li>What factors may affect eligibility</li>
-      <li>Planning considerations based on your situation</li>
-    </ul>
+      <div class="mini-card">
+        <strong>Eligibility factors</strong>
+        <p>Review what may affect whether coverage is available.</p>
+      </div>
+
+      <div class="mini-card">
+        <strong>Your situation</strong>
+        <p>Discuss planning considerations based on your goals.</p>
+      </div>
+    </div>
 
     <div class="card">
       <strong>
@@ -109,34 +218,52 @@
       </strong>
     </div>
 
-    <a class="button" href="mailto:sduffy@ft.newyorklife.com?subject=LTC%20Planning%20Consultation">
-      Email Me
-    </a>
+    <h2>Request Your Consultation</h2>
 
-    <a class="button secondary" href="tel:6033700229">
-      Call Me
-    </a>
+    <form action="https://formspree.io/f/YOUR-ID" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
 
-    <a class="button secondary" href="sms:6036069037">
-      Text Me
-    </a>
+      <input type="email" name="email" placeholder="Email Address" required>
 
-    <h2>About Shane</h2>
+      <input type="tel" name="phone" placeholder="Phone Number">
 
-    <p>
-      Shane Duffy, CLTC®<br />
-      Financial Services Professional<br />
-      Agent, New York Life Insurance Company
-    </p>
+      <select name="timeline">
+        <option value="">When are you looking into this?</option>
+        <option>Just researching</option>
+        <option>Planning in the next 1–2 years</option>
+        <option>Actively looking now</option>
+      </select>
 
-    <p>
-      1155 Elm Street, 8th Floor<br />
-      Manchester, NH 03101
-    </p>
+      <textarea name="message" placeholder="Anything you'd like to discuss?"></textarea>
+
+      <button type="submit">Request Consultation</button>
+    </form>
+
+    <div class="contact-box">
+      <strong>Prefer direct contact?</strong><br><br>
+      <a href="tel:6033700229">Call: (603) 370-0229</a><br>
+      <a href="sms:6036069037">Text: (603) 606-9037</a><br>
+      <a href="mailto:sduffy@ft.newyorklife.com?subject=LTC%20Planning%20Consultation">Email Shane</a>
+    </div>
+
+    <div class="about">
+      <h2>About Shane</h2>
+      <p>
+        Shane Duffy, CLTC®<br>
+        Financial Services Professional<br>
+        Agent, New York Life Insurance Company
+      </p>
+
+      <p>
+        1155 Elm Street, 8th Floor<br>
+        Manchester, NH 03101
+      </p>
+    </div>
 
     <div class="footer">
       This is a solicitation of insurance. An agent may contact you. Coverage is subject to underwriting, policy terms, and state availability. Policies have exclusions and limitations.
     </div>
-  </main>
+
+  </div>
 </body>
 </html>
