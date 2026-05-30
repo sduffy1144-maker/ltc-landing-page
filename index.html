@@ -20,14 +20,18 @@
       padding: 36px 22px;
     }
 
-    .hero {
+    .hero, .form-section, .card, .about {
       background: white;
+      border: 1px solid #dbe3ec;
       border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
+    }
+
+    .hero {
       padding: 38px;
       display: flex;
       gap: 34px;
       align-items: center;
-      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
     }
 
     .hero-text {
@@ -67,7 +71,6 @@
     .subheadline {
       font-size: 19px;
       color: #475569;
-      margin-bottom: 20px;
     }
 
     .trust-line {
@@ -77,22 +80,9 @@
       font-weight: bold;
     }
 
-    .card {
-      background: #ffffff;
-      border: 1px solid #dbe3ec;
-      border-radius: 14px;
-      padding: 22px;
-      margin: 22px 0;
-      box-shadow: 0 4px 14px rgba(15, 76, 129, 0.04);
-    }
-
     .form-section {
-      background: #ffffff;
-      border: 1px solid #dbe3ec;
-      border-radius: 18px;
       padding: 26px;
       margin: 26px 0;
-      box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
     }
 
     .callout {
@@ -111,6 +101,11 @@
       margin-bottom: 18px;
     }
 
+    .card {
+      padding: 22px;
+      margin: 22px 0;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -122,10 +117,6 @@
       border: 1px solid #dbe3ec;
       border-radius: 12px;
       padding: 18px;
-    }
-
-    form {
-      margin-top: 12px;
     }
 
     input, textarea, select {
@@ -159,6 +150,16 @@
       background: #0b3d68;
     }
 
+    .status-message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #eef5fb;
+      color: #0f172a;
+      font-weight: bold;
+    }
+
     .contact-box {
       background: #eef5fb;
       border-radius: 14px;
@@ -173,10 +174,7 @@
 
     .about {
       margin-top: 34px;
-      background: white;
-      border-radius: 14px;
       padding: 22px;
-      border: 1px solid #dbe3ec;
     }
 
     .footer {
@@ -256,13 +254,9 @@
 
       <h2>Request Your Consultation</h2>
 
-      <form action="https://formspree.io/f/meeddyqr" method="POST">
-        <input type="hidden" name="_redirect" value="https://sduffy1144-maker.github.io/ltc-landing-page/thank-you.html">
-
+      <form id="ltc-form">
         <input type="text" name="name" placeholder="Full Name" required>
-
         <input type="email" name="email" placeholder="Email Address" required>
-
         <input type="tel" name="phone" placeholder="Phone Number">
 
         <select name="timeline">
@@ -274,16 +268,19 @@
 
         <select name="age-range">
           <option value="">Age Range</option>
-          <option>30–49</option>
-          <option>50–59</option>
-          <option>60–69</option>
-          <option>70–74</option>
+          <option>45–54</option>
+          <option>55–64</option>
+          <option>65–74</option>
           <option>75+</option>
         </select>
 
         <textarea name="message" placeholder="Anything you'd like to discuss?"></textarea>
 
-        <button type="submit">Request Consultation</button>
+        <button id="submit-button" type="submit">Request Consultation</button>
+
+        <div id="status-message" class="status-message">
+          Submitting your request...
+        </div>
       </form>
     </section>
 
@@ -347,5 +344,44 @@
     </div>
 
   </div>
+
+  <script>
+    const form = document.getElementById("ltc-form");
+    const button = document.getElementById("submit-button");
+    const statusMessage = document.getElementById("status-message");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      statusMessage.style.display = "block";
+      statusMessage.textContent = "Submitting your request...";
+      button.disabled = true;
+      button.textContent = "Submitting...";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://formspree.io/f/meeddyqr", {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          statusMessage.textContent = "There was a problem submitting the form. Please call, text, or email Shane directly.";
+          button.disabled = false;
+          button.textContent = "Request Consultation";
+        }
+      } catch (error) {
+        statusMessage.textContent = "There was a problem submitting the form. Please call, text, or email Shane directly.";
+        button.disabled = false;
+        button.textContent = "Request Consultation";
+      }
+    });
+  </script>
 </body>
 </html>
