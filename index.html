@@ -160,6 +160,12 @@
       font-weight: bold;
     }
 
+    .status-message.error {
+      background: #fff4f4;
+      color: #7f1d1d;
+      border: 1px solid #fecaca;
+    }
+
     .contact-box {
       background: #eef5fb;
       border-radius: 14px;
@@ -256,7 +262,15 @@
 
       <form id="ltc-form">
         <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
+
+        <input 
+          type="email" 
+          id="email"
+          name="email" 
+          placeholder="Email Address" 
+          required
+        >
+
         <input type="tel" name="phone" placeholder="Phone Number">
 
         <select name="timeline">
@@ -268,9 +282,10 @@
 
         <select name="age-range">
           <option value="">Age Range</option>
-          <option>45–54</option>
-          <option>55–64</option>
-          <option>65–74</option>
+          <option>30–49</option>
+          <option>50–59</option>
+          <option>60–69</option>
+          <option>70–74</option>
           <option>75+</option>
         </select>
 
@@ -349,12 +364,35 @@
     const form = document.getElementById("ltc-form");
     const button = document.getElementById("submit-button");
     const statusMessage = document.getElementById("status-message");
+    const emailInput = document.getElementById("email");
+
+    function showMessage(message, isError = false) {
+      statusMessage.style.display = "block";
+      statusMessage.textContent = message;
+
+      if (isError) {
+        statusMessage.classList.add("error");
+      } else {
+        statusMessage.classList.remove("error");
+      }
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
 
     form.addEventListener("submit", async function(event) {
       event.preventDefault();
 
-      statusMessage.style.display = "block";
-      statusMessage.textContent = "Submitting your request...";
+      const email = emailInput.value.trim();
+
+      if (!isValidEmail(email)) {
+        showMessage("Please enter a complete email address, such as name@example.com. You can also call or text Shane directly.", true);
+        emailInput.focus();
+        return;
+      }
+
+      showMessage("Submitting your request...");
       button.disabled = true;
       button.textContent = "Submitting...";
 
@@ -372,12 +410,12 @@
         if (response.ok) {
           window.location.href = "thank-you.html";
         } else {
-          statusMessage.textContent = "There was a problem submitting the form. Please call, text, or email Shane directly.";
+          showMessage("Your form could not be submitted online. Please call Shane at (603) 370-0229 or text (603) 606-9037.", true);
           button.disabled = false;
           button.textContent = "Request Consultation";
         }
       } catch (error) {
-        statusMessage.textContent = "There was a problem submitting the form. Please call, text, or email Shane directly.";
+        showMessage("Your form could not be submitted online. Please call Shane at (603) 370-0229 or text (603) 606-9037.", true);
         button.disabled = false;
         button.textContent = "Request Consultation";
       }
