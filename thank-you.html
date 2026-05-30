@@ -1,40 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Long-Term Care Planning</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f3f6fa;
       color: #1f2937;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 700px;
-      margin: 60px auto;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 42px 22px;
+    }
+
+    .card {
       background: white;
-      padding: 40px 28px;
+      border: 1px solid #dbe3ec;
       border-radius: 18px;
-      text-align: center;
+      padding: 34px;
       box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
+      text-align: center;
     }
 
     h1 {
       color: #0f172a;
-      font-size: 34px;
+      font-size: 38px;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      color: #0f172a;
+      margin-top: 30px;
+      font-size: 24px;
     }
 
     p {
-      font-size: 18px;
-      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    .subheadline {
+      color: #475569;
+      font-size: 19px;
+      margin-bottom: 26px;
+    }
+
+    .success-box {
+      background: #eef5fb;
+      border-left: 5px solid #0f4c81;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: left;
+      margin: 24px 0;
+    }
+
+    .steps {
+      text-align: left;
+      background: #f8fafc;
+      border: 1px solid #dbe3ec;
+      border-radius: 14px;
+      padding: 22px;
+      margin: 24px 0;
+    }
+
+    .steps ol {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .prep-box {
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #dbe3ec;
+      border-radius: 14px;
+      padding: 22px;
+      margin: 24px 0;
+    }
+
+    .prep-box ul {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      background: #eef5fb;
+      border-radius: 14px;
+      padding: 22px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid #dbe3ec;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    a {
+      color: #0f4c81;
+      font-weight: bold;
     }
 
     .button {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 18px;
       padding: 14px 22px;
       background: #0f4c81;
       color: white;
@@ -43,31 +127,116 @@
       font-weight: bold;
     }
 
+    .button:hover {
+      background: #0b3d68;
+    }
+
+    .advisor {
+      margin-top: 28px;
+      color: #475569;
+      font-size: 14px;
+    }
+
     .footer {
-      margin-top: 30px;
+      margin-top: 28px;
       font-size: 12px;
       color: #64748b;
+      border-top: 1px solid #dbe3ec;
+      padding-top: 18px;
+      text-align: left;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        padding: 24px 14px;
+      }
+
+      .card {
+        padding: 26px 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>Thank You</h1>
+    <main class="card">
+      <h1>Thank You</h1>
 
-    <p>
-      Your consultation request has been submitted.
-    </p>
+      <p class="subheadline">
+        Your long-term care planning consultation request has been received.
+      </p>
 
-    <p>
-      Shane will review your information and follow up with you soon.
-    </p>
+      <div class="success-box">
+        <strong>You made a good first step by planning ahead.</strong>
+        <p>
+          Long-term care planning can be easier to think through before decisions feel urgent. I’ll review your information and follow up soon.
+        </p>
+      </div>
 
-    <a class="button" href="index.html">Return to Main Page</a>
+      <div class="steps">
+        <h2>What happens next?</h2>
+        <ol>
+          <li>I’ll personally review your consultation request.</li>
+          <li>I’ll reach out by call, text, or email regarding your request.</li>
+          <li>We’ll have a brief conversation to discuss your questions and whether planning for long-term care makes sense for your situation.</li>
+        </ol>
+      </div>
 
-    <div class="footer">
-      This is a solicitation of insurance. An insurance agent may contact you. Coverage is subject to underwriting, policy terms, and state availability.
-    </div>
+      <div class="prep-box">
+        <h2>Before we speak</h2>
+        <p>
+          It may be helpful to think about:
+        </p>
+        <ul>
+          <li>What concerns you most about long-term care planning</li>
+          <li>Whether you have explored coverage or planning options before</li>
+          <li>How a care need could affect your family, savings, or retirement plan</li>
+          <li>Any questions you would like answered during the conversation</li>
+        </ul>
+      </div>
+
+      <div class="contact-box">
+        <strong>Need immediate assistance?</strong>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            Call<br>
+            <a href="tel:6033700229">(603) 370-0229</a>
+          </div>
+
+          <div class="contact-card">
+            Text<br>
+            <a href="sms:6036069037">(603) 606-9037</a>
+          </div>
+
+          <div class="contact-card">
+            Email<br>
+            <a href="mailto:sduffy@ft.newyorklife.com?subject=LTC%20Planning%20Consultation">Email Shane</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="button" href="index.html">Return to Main Page</a>
+
+      <div class="advisor">
+        Shane Duffy, CLTC®<br>
+        Financial Services Professional<br>
+        Agent, New York Life Insurance Company
+      </div>
+
+      <div class="footer">
+        This is a solicitation of insurance. An insurance agent may contact you. Long-term care insurance policies have exclusions and limitations. Coverage is subject to underwriting, policy terms, and state availability. For costs and complete details, contact your agent or the company.
+      </div>
+    </main>
   </div>
 </body>
 </html>
